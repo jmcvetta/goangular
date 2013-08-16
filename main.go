@@ -51,5 +51,5 @@ func main() {
 		Writes(Foo{}))
 	restful.Add(&ws)
 	log.Printf("Starting webserver on %v...", baseUrl)
-	log.Fatal(http.ListenAndServe(":8080", nil))
+	log.Fatal(http.ListenAndServe(baseUrl, nil))
 }
