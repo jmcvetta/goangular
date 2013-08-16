@@ -1,6 +1,7 @@
 package main
 
 import (
+	"github.com/darkhelmet/env"
 	restful "github.com/emicklei/go-restful"
 	"github.com/jmcvetta/randutil"
 	"log"
@@ -38,7 +39,8 @@ func getBar(request *restful.Request, response *restful.Response) {
 }
 
 func main() {
-	baseUrl := ":8080"
+	port := env.StringDefault("PORT", "8080")
+	baseUrl := ":" + port
 	var ws restful.WebService
 	ws.Path("/api").
 		Consumes(restful.MIME_JSON).
